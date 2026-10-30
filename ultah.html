@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#bd72e8">
+<title>Selamat Ulang Tahun 💗</title>
+
+<style>
+:root {
+  --pink: #ff75bd;
+  --purple: #9b69ed;
+  --dark: #30123e;
+  --white: #fff8ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  background: linear-gradient(
+    145deg, #ffb6df 0%, #d7a5ff 45%, #9270e9 100%
+  );
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+.background-glow {
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-one {
+  background: #ff4fae;
+  top: 5%;
+  left: -100px;
+}
+
+.glow-two {
+  background: #8250ff;
+  right: -100px;
+  bottom: 5%;
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 2;
+}
+
+header {
+  text-align: center;
+  padding: 25px 16px 10px;
+}
+
+.logo {
+  display: inline-block;
+  border: 1px solid #ffffff80;
+  background: #ffffff26;
+  padding: 8px 17px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  backdrop-filter: blur(10px);
+}
+
+.hero {
+  text-align: center;
+  padding: 28px 20px 38px;
+}
+
+.emoji {
+  font-size: 44px;
+  animation: heartbeat 2s infinite;
+}
+
+h1 {
+  font-size: clamp(34px, 9vw, 55px);
+  line-height: 1.1;
+  margin: 12px 0;
+  text-shadow: 0 5px 25px #a53cbe75;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #fff, #ffe1f2, #fff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 400px;
+  margin: 12px auto 0;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.container {
+  width: min(91%, 470px);
+  margin: auto;
+}
+
+.card {
+  padding: 22px;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff80;
+  border-radius: 26px;
+  background: #ffffff26;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px #6c248d22;
+}
+
+.section-title {
+  font-size: 21px;
+  text-align: center;
+  margin-bottom: 17px;
+}
+
+.photo-frame {
+  position: relative;
+  padding: 7px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, white, #ff80c9, #a87aff);
+  box-shadow: 0 0 28px #ff9bd780;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.photo-caption {
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.info {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.info-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.info h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.info p {
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid #ffffff60;
+  border-radius: 15px;
+  background: linear-gradient(100deg, #ff6db8, #a26bfa);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 5px 16px #853cae30;
+  transition: transform .25s, filter .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+.btn-outline {
+  background: #ffffff22;
+}
+
+.stack {
+  display: grid;
+  gap: 11px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.time-box {
+  background: #ffffff25;
+  border: 1px solid #ffffff60;
+  border-radius: 15px;
+  padding: 14px 3px;
+  text-align: center;
+}
+
+.time-box strong {
+  display: block;
+  font-size: 25px;
+}
+
+.time-box span {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.letter {
+  color: #633a7b;
+  background: linear-gradient(145deg, #fff8fc, #ffe6f5);
+  padding: 22px;
+  border-radius: 20px;
+  line-height: 1.9;
+  font-size: 14px;
+  display: none;
+  margin-top: 16px;
+  animation: openLetter .5s ease;
+}
+
+.letter.show {
+  display: block;
+}
+
+.letter h3 {
+  color: #d64eaa;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.letter p {
+  white-space: pre-line;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 15px;
+  color: #c14ba8;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 15px 35px;
+  font-size: 12px;
+  line-height: 2;
+}
+
+/* Floating decorations */
+.balloon {
+  position: fixed;
+  bottom: -110px;
+  width: 35px;
+  height: 45px;
+  border-radius: 50% 50% 45% 45%;
+  z-index: 1;
+  opacity: .72;
+  pointer-events: none;
+  animation: balloonUp linear infinite;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 14px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid currentColor;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  top: 49px;
+  left: 17px;
+  height: 40px;
+  width: 1px;
+  background: #ffffffa0;
+}
+
+.butterfly {
+  position: fixed;
+  top: 105%;
+  font-size: 25px;
+  z-index: 3;
+  pointer-events: none;
+  animation: butterflyFly linear infinite;
+}
+
+.sparkle {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  color: white;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+#musicStatus {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  opacity: .85;
+}
+
+@keyframes balloonUp {
+  from { transform: translateY(0) rotate(-8deg); }
+  to { transform: translateY(-125vh) rotate(12deg); }
+}
+
+@keyframes butterflyFly {
+  0% { top: 105%; transform: translateX(0) rotate(0); }
+  50% { transform: translateX(35px) rotate(15deg); }
+  100% { top: -10%; transform: translateX(-30px) rotate(-15deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: .2; transform: scale(.7); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes openLetter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<header>
+  <div class="logo">✦ HARI SPESIAL ✦</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="emoji">🎂</div>
+    <h1 class="gradient-text">
+      Happy<br>Birthday!
+    </h1>
+    <h2 id="heroName">Nama yang Berulang Tahun 💗</h2>
+    <p>
+      Hari istimewa untuk seseorang yang istimewa.
+      Semoga hari ini dipenuhi kebahagiaan,
+      cinta, dan kenangan yang indah ✨
+    </p>
+  </section>
+
+  <div class="container">
+
+    <!-- FOTO UTAMA -->
+    <section class="card">
+      <h2 class="section-title">Semoga Panjang Umur  Sehat Selalu </h2>
+
+      <!-- Ganti foto-ulangtahun.jpg dengan nama file fotomu -->
+      <div class="photo-frame">
+        <img
+          src="ultah.png"
+          alt="Foto spesial ulang tahun"
+          onerror="this.style.objectFit='contain';this.style.background='#d7a5ff';this.alt='Foto belum ditemukan. Letakkan foto-ulangtahun.jpg di folder yang sama.'"
+        >
+      </div>
+
+      <p class="photo-caption">
+        One special day, a thousand beautiful wishes 💕
+      </p>
+    </section>
+
+    <!-- HITUNG MUNDUR -->
+    <section class="card">
+      <h2 class="section-title">Countdown Party ⏳</h2>
+
+      <div class="countdown">
+        <div class="time-box">
+          <strong id="days">00</strong>
+          <span>HARI</span>
+        </div>
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <span>JAM</span>
+        </div>
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <span>MENIT</span>
+        </div>
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <span>DETIK</span>
+        </div>
+      </div>
+
+      <p id="countdownMessage"
+         style="text-align:center;font-size:12px;margin-top:13px">
+        Menghitung waktu menuju hari bahagia 💗
+      </p>
+    </section>
+
+    <!-- DETAIL ACARA -->
+    <section class="card">
+      <h2 class="section-title">Birthday Party Details 💌</h2>
+
+      <div class="info">
+        <div class="info-icon">🗓️</div>
+        <h3>Tanggal & Waktu</h3>
+        <p id="eventDateText">4 November 2026 · 11.15 WIB</p>
+      </div>
+
+      <div class="info">
+        <div class="info-icon">📍</div>
+        <h3>Lokasi Acara</h3>
+        <p id="locationText">Nama tempat ulang tahun</p>
+      </div>
+
+      <div class="stack" style="margin-top:12px">
+        <a class="btn" id="mapButton"
+           href="https://maps.google.com/?q=-5.412951,105.215172"
+           target="_blank" rel="noopener">
+          📍 Buka Google Maps
+        </a>
+
+        <a class="btn btn-outline" id="waButton"
+           href="https://wa.me/6281234567890"
+           target="_blank" rel="noopener">
+          💬 Konfirmasi Kehadiran
+        </a>
+      </div>
+    </section>
+
+    <!-- SURAT UCAPAN -->
+    <section class="card">
+      <h2 class="section-title">A Letter For You 💌</h2>
+
+      <p style="text-align:center;font-size:13px;line-height:1.8;margin-bottom:17px">
+        Ada pesan spesial yang sudah disiapkan untukmu.
+        Klik tombol di bawah untuk membukanya! 💗
+      </p>
+
+      <button class="btn" id="letterButton"
+              onclick="toggleLetter()">
+        💌 Buka Surat Rahasia
+      </button>
+
+      <div class="letter" id="letter">
+        <h3>Dear, Nama Kamu 💗</h3>
+
+        <p id="letterMessage">Happy birthday! 🎂✨
+
+Selamat bertambah usia! Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan keberuntungan.
+
+Semoga semua impian yang kamu simpan perlahan menjadi kenyataan. Jangan pernah berhenti tersenyum, karena kamu pantas mendapatkan banyak hal baik dalam hidup.
+
+Terima kasih sudah menjadi seseorang yang begitu spesial. Semoga tahun ini membawa cerita baru, pengalaman indah, dan banyak alasan untuk bahagia.
+
+Nikmati hari istimewamu, ya! Hari ini adalah tentang kamu. 💗</p>
+
+        <div class="signature">
+          With love, 💕<br>
+          Someone who wishes you the best
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIK -->
+    <section class="card">
+      <h2 class="section-title">Birthday Vibes 🎶</h2>
+      <p style="text-align:center;font-size:13px;line-height:1.8;margin-bottom:15px">
+        Tambahkan musik agar suasana ulang tahun makin meriah!
+      </p>
+
+      <div class="stack">
+        <button class="btn" id="musicButton" onclick="toggleMusic()">
+          🎵 Putar Musik
+        </button>
+      </div>
+
+      <p id="musicStatus">
+        Musik akan diputar setelah tombol ditekan.
+      </p>
+
+      <audio id="birthdayMusic" loop preload="none">
+        <source src="lagu1.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- KEJUTAN -->
+    <section class="card" style="text-align:center">
+      <div style="font-size:40px">🎁</div>
+      <h2 class="section-title">One More Surprise!</h2>
+      <p style="font-size:13px;line-height:1.8;margin-bottom:16px">
+        Siap menerima kejutan kecil hari ini?
+      </p>
+
+      <button class="btn" onclick="surprise()">
+        ✨ Klik untuk Kejutan
+      </button>
+
+      <p id="surpriseText"
+         style="margin-top:15px;line-height:1.8;font-size:14px"></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  Made with 💗 and lots of love<br>
+  © Selamat Ulang Tahun
+</footer>
+
+<script>
+/* ==================================
+   PENGATURAN WEBSITE
+   UBAH BAGIAN INI SESUAI KEBUTUHAN
+================================== */
+
+const CONFIG = {
+  name: "Azalea Zara Antaqi",
+
+  // Format: YYYY-MM-DDTHH:MM:SS+07:00
+  eventDate: "2026-11-04T04:00:00+07:00",
+
+  eventDateText: "4 November 2026 · 11.15 WIB",
+
+  locationName: "Kediaman Rumah Azalea Zara Antaqi",
+
+  // Tempelkan URL Google Maps lokasi acara
+  mapUrl: "https://maps.google.com/?q=-5.412951,105.215172",
+
+  // Format nomor internasional, tanpa + atau angka 0 awal
+  whatsapp: "6281311031994",
+
+  whatsappMessage:
+    "Halo! Aku mau konfirmasi kehadiran di acara ulang tahun. 🎂"
+};
+
+/* Tampilkan identitas acara */
+document.getElementById("heroName").textContent =
+  CONFIG.name + " ";
+
+document.getElementById("eventDateText").textContent =
+  CONFIG.eventDateText;
+
+document.getElementById("locationText").textContent =
+  CONFIG.locationName;
+
+document.querySelector("#letter h3").textContent =
+  "Dear, " + CONFIG.name + " 💗";
+
+document.getElementById("mapButton").href = CONFIG.mapUrl;
+
+document.getElementById("waButton").href =
+  "https://wa.me/" + CONFIG.whatsapp +
+  "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
+
+/* Countdown otomatis */
+const targetDate = new Date(CONFIG.eventDate).getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  let distance = targetDate - now;
+
+  const message = document.getElementById("countdownMessage");
+
+  if (!Number.isFinite(targetDate)) {
+    message.textContent = "Periksa pengaturan tanggal acara.";
+    return;
+  }
+
+  if (distance <= 0) {
+    ["days", "hours", "minutes", "seconds"].forEach(id => {
+      document.getElementById(id).textContent = "00";
+    });
+
+    message.textContent = "Yeay! Hari spesialnya sudah tiba! 🎉";
+    return;
+  }
+
+  const days = Math.floor(distance / 86400000);
+  const hours = Math.floor((distance % 86400000) / 3600000);
+  const minutes = Math.floor((distance % 3600000) / 60000);
+  const seconds = Math.floor((distance % 60000) / 1000);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* Buka dan tutup surat */
+function toggleLetter() {
+  const letter = document.getElementById("letter");
+  const button = document.getElementById("letterButton");
+
+  letter.classList.toggle("show");
+
+  if (letter.classList.contains("show")) {
+    button.textContent = "💌 Tutup Surat";
+    letter.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  } else {
+    button.textContent = "💌 Buka Surat Rahasia";
+  }
+}
+
+/* Efek balon */
+const balloonColors = [
+  "#ff70b9", "#b887ff", "#ffacd7",
+  "#9a78ff", "#ffffff", "#f08bff"
+];
+
+for (let i = 0; i < 13; i++) {
+  const balloon = document.createElement("div");
+  balloon.className = "balloon";
+
+  balloon.style.left = Math.random() * 100 + "vw";
+  balloon.style.background =
+    balloonColors[i % balloonColors.length];
+  balloon.style.color =
+    balloonColors[i % balloonColors.length];
+  balloon.style.animationDuration =
+    (10 + Math.random() * 12) + "s";
+  balloon.style.animationDelay =
+    (-Math.random() * 20) + "s";
+
+  document.body.appendChild(balloon);
+}
+
+/* Efek kupu-kupu */
+for (let i = 0; i < 7; i++) {
+  const butterfly = document.createElement("div");
+  butterfly.className = "butterfly";
+  butterfly.textContent = "🦋";
+
+  butterfly.style.left = Math.random() * 95 + "vw";
+  butterfly.style.animationDuration =
+    (12 + Math.random() * 12) + "s";
+  butterfly.style.animationDelay =
+    (-Math.random() * 20) + "s";
+
+  document.body.appendChild(butterfly);
+}
+
+/* Efek bintang berkilau */
+for (let i = 0; i < 15; i++) {
+  const star = document.createElement("div");
+  star.className = "sparkle";
+  star.textContent = "✦";
+
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.fontSize = (10 + Math.random() * 12) + "px";
+  star.style.animationDelay = Math.random() * 3 + "s";
+
+  document.body.appendChild(star);
+}
+
+/* Musik opsional */
+const music = document.getElementById("birthdayMusic");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
+
+async function toggleMusic() {
+  if (!music.paused) {
+    music.pause();
+    musicButton.textContent = "🎵 Putar Musik";
+    musicStatus.textContent = "Musik dijeda.";
+    return;
+  }
+
+  try {
+    await music.play();
+    musicButton.textContent = "⏸️ Jeda Musik";
+    musicStatus.textContent = "Enjoy the birthday vibes! 🎶";
+  } catch (error) {
+    musicStatus.textContent =
+      "Musik belum bisa diputar. Pastikan file musik-ulangtahun.mp3 tersedia.";
+  }
+}
+
+music.addEventListener("ended", () => {
+  musicButton.textContent = "🎵 Putar Musik";
+});
+
+/* Kejutan dengan konfeti */
+function surprise() {
+  const message = document.getElementById("surpriseText");
+
+  message.textContent =
+    "🎉 HAPPY BIRTHDAY, " + CONFIG.name.toUpperCase() +
+    "! 💗 Semoga semua doa terbaikmu segera terwujud! 🦋🎂";
+
+  for (let i = 0; i < 45; i++) {
+    const confetti = document.createElement("div");
+
+    confetti.textContent = [
+      "💗", "💜", "✨", "🎉", "🌸"
+    ][Math.floor(Math.random() * 5)];
+
+    confetti.style.position = "fixed";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = "-30px";
+    confetti.style.fontSize = "20px";
+    confetti.style.zIndex = "10";
+    confetti.style.pointerEvents = "none";
+    confetti.style.transition =
+      "transform 3s linear, opacity 3s linear";
+
+    document.body.appendChild(confetti);
+
+    requestAnimationFrame(() => {
+      confetti.style.transform =
+        "translateY(" + (window.innerHeight + 80) +
+        "px) rotate(" + (Math.random() * 700) + "deg)";
+      confetti.style.opacity = "0";
+    });
+
+    setTimeout(() => confetti.remove(), 3200);
+  }
+}
+</script>
+
+</body>
+</html>
